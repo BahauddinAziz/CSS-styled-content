@@ -1,0 +1,71 @@
+/* Basic Body Styling */
+body{
+    font-family: sans-serif;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form{
+    position: relative;
+    width: 500px;
+    height: 50px;
+    overflow: hidden;
+}
+
+#style-1{
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    font-size: 16pt;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+#style-1-label{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+#style-1-label::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid salmon;
+    transform: translateX(-100%);
+    transition: 0.3s;
+}
+
+#style-1-label_name{
+    position: absolute;
+    font-size: 16pt;
+    bottom: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+#style-1:focus + #style-1-label span, #style-1:valid + #style-1-label span{
+    transform: translateY(-150%);
+    font-size: 12pt;
+    color: salmon;
+}
+
+#style-1:focus + #style-1-label::after, #style-1:valid + #style-1-label::after{
+    transform: translateX(0)
+}
